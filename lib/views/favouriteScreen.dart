@@ -11,6 +11,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
 List<int> selectedItems=[];
   @override
   Widget build(BuildContext context) {
+    print('build');
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -26,9 +27,12 @@ List<int> selectedItems=[];
                   onTap: (){
                     selectedItems.add(index);
                     print("clicked $index");
+                    setState(() {
+
+                    });
                   },
                   title: Text('item $index'),
-                  trailing: Icon(Icons.favorite_outline),
+                  trailing: selectedItems.contains(index) ? Icon(Icons.favorite):Icon(Icons.favorite_outline),
                 );
               }),
             ),
