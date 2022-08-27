@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => FavouriteProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: FavouriteScreen(),
       ),
     );

@@ -10,4 +10,8 @@ class FavouriteProvider with ChangeNotifier{
     _selectedItems.add(i);
     notifyListeners();
   }
+  void RemoveIndex(int i){
+    _selectedItems.remove(i);
+    notifyListeners();
+  }
 }

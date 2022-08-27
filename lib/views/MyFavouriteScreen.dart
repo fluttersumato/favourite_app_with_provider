@@ -1,44 +1,31 @@
-import 'package:favourite_app_with_provider/providers/FavouriteProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'MyFavouriteScreen.dart';
+import '../providers/FavouriteProvider.dart';
 
-class FavouriteScreen extends StatefulWidget {
-  const FavouriteScreen({Key? key}) : super(key: key);
+class MyFavouriteScreen extends StatefulWidget {
+  const MyFavouriteScreen({Key? key}) : super(key: key);
 
   @override
-  State<FavouriteScreen> createState() => _FavouriteScreenState();
+  State<MyFavouriteScreen> createState() => _MyFavouriteScreenState();
 }
 
-class _FavouriteScreenState extends State<FavouriteScreen> {
+class _MyFavouriteScreenState extends State<MyFavouriteScreen> {
   @override
   Widget build(BuildContext context) {
-    // final favouriteProvider = Provider.of<FavouriteProvider>(context);
-    print('build');
+    final favouriteProvider = Provider.of<FavouriteProvider>(context);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Favourite with Provider'),
-          actions: [
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyFavouriteScreen(),
-                  ),
-                );
-              },
-              child: Icon(Icons.favorite),
-            ),
-          ],
+          title: Center(
+            child: Text('My Favourite'),
+          ),
         ),
         body: Column(
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 100,
+                itemCount: favouriteProvider.selectedItems.length,
                 itemBuilder: (context, index) {
                   return Consumer<FavouriteProvider>(
                       builder: (context, provider, child) {
