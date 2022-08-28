@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/ThemeChangerProvider.dart';
+import 'views/StatelessWidgetAsStateFullPage.dart';
 import 'views/favouriteScreen.dart';
 import 'views/themePage.dart';
 
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
             debugShowCheckedModeBanner: false,
-            home: ThemePage(),
+            home: StatelessWidgetAsStateFull(),
           );
         },
       ),
